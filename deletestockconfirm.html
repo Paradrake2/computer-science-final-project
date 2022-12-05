@@ -1,0 +1,21 @@
+<%
+stockidnum = request.forms.get("stockidnum")
+%>
+<!DOCTYPE html>
+<html>
+    <title>Confirm deletion</title>
+    <body>
+        <form action="/deletestockresult">
+            <input type="text" name = "stockidnum" value = "Delete {{stockidnum}}?" readonly>
+            <input type="submit">
+        </form>
+
+        <form action = "/stockmarket" method = "get">
+            <input type="submit" value = "Go back?">
+        </form>
+    </body>
+
+
+
+
+</html>
