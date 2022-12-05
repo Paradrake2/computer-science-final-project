@@ -1,0 +1,24 @@
+<%
+from bottle import request
+import sqlite3
+marketPrice = request.forms.get("mPrice")
+previousClosePrice = request.forms.get("pClosePrice")
+name = request.forms.get("stock")
+Date = request.forms.get("Date")
+c.execute("INSERT INTO stockinfo VALUES (null, ?, ?, ?, ?)",(name, marketPrice, previousClosePrice, Date))
+db.commit()
+%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add To Database</title>
+    </head>
+
+    <body>
+        <p>Added to database</p>
+        <form action="/stockmarket" method="get">
+            <label>Return to Stock Market</label>
+            <input type="submit">
+        </form>
+    </body>
+</html>
