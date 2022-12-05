@@ -1,0 +1,105 @@
+p.a {
+    font-size: 15px;
+}
+
+input.a {
+    color: yellow;
+}
+
+div.center {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+
+div.center {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+div.header {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    font-size: 30px;
+    color: #17698a;
+}
+div.subheader {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    font-size: 20px;
+    color: #6fc2e3;
+}
+div.dropdown {
+    margin: auto;
+    width: 50%;
+    color: black;
+    font-size: 14px;
+}
+a.a {
+    font-size:14px;
+}
+#a.a {
+    font-size:14px;
+}
+form.headform {
+    width: 100%;
+    height: 50%;
+}
+input.inputa {
+    width: 250px;
+    height: 45px;
+    background-color: #22429c;
+    color: white;
+    font-size: 15px;
+}
+input.inputa:hover {
+    background-color: #7290fc;
+    color: black;
+}
+input.inputb {
+    width: 200px;
+    height: 30px;
+}
+.container {
+    width: 25%;
+    position: center;
+    margin: auto;
+    font-size: 23px;
+}
+/* Formatting for tables(used to make inputs and labels look pretty) */
+table.tablea{
+    border: none;
+}
+tr.r {
+    text-align: left;
+}
+tr.l {
+    text-align: right;
+}
+div.head {
+    width: 100%;
+    height: 20%;
+}
+.text{
+    font-size: 20px;
+    color: #4058ad;
+}
+input.inputc {
+    width:200px;
+    height:30px;
+    background-color: #1138f7;
+    color: white;
+}
+input.inputc:hover {
+    background-color: #1188f7;
+    color: black;
+}
+p.disclaimer {
+    font-size: 27px;
+
+}
