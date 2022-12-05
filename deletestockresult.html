@@ -1,0 +1,30 @@
+<%
+from bottle import request
+stockidnum = request.forms.get("stockidnum")
+selection = c.execute("SELECT * FROM stockinfo WHERE ID = ?", (stockidnum))
+
+for i in selection:
+    stockid = i[1]
+end
+
+c.execute("DELETE FROM stockinfo WHERE ID = ?", (stockidnum))
+db.commit()
+%>
+<!DOCTYPE html>
+<html>
+    <title>Deleted Stock</title>
+    <style>
+        p.1 {
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="/home/leogold/mysite/views/css.css">
+    <body>
+        <div class = "center">
+            <form action = "/deletedstock" method = "post">
+                <p class = 1>Deleted stock</p>
+                <input type="submit" value = "Go back">
+            </form>
+        </div>
+    </body>
+</html>
