@@ -1,0 +1,59 @@
+<%
+from bottle import request
+import yfinance as yf
+import pandas as pd
+import jinja2
+
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel = "stylesheet" href = "/static/css.css">
+<!-- Local CSS -->
+<style>
+    p.disclaimer {
+        font-size: 20px;
+    }
+</style>
+<body>
+    <div class = "head">
+        <div class="header">
+            <p>Welcome to History</p>
+        </div>
+        <div class="subheader">
+            <p>You can look up the prices of a stock during a certain time period</p>
+        </div>
+    </div>
+    <div class = "container">
+        <form action = "/historyresult" method = "post">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class = "l">Search Stock : </td>
+                        <td class = "r"><input type = "text" name = "stock"></td>
+                    </tr>
+                    <tr>
+                        <td class = "l">Enter start date : </td>
+                        <td class = "r"><input type = "text" name = "startdate" placeholder = "YYYY-MM-DD"></td>
+                    </tr>
+                    <tr>
+                        <td class = "l">Enter end date : </td>
+                        <td class = "r"><input type = "text" name = "enddate" placeholder = "YYYY-MM-DD"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type = "submit" value = "search" class = "inputa">
+        </form>
+    </div>
+    <div>
+        <p class = "disclaimer">Disclaimer</p>
+        <p>If a stock is de-listed, it's history will not be fully there. For example, Twitter(TWTR) was officially delisted on November 8th, but stopped reporting it's stock prices on Oct 27. Consequently, there is no available data after Oct 27.</p>
+    </div>
+    <form action="/stockmarket" method="get">
+        <input type="submit" value="Go back to stock market">
+    </form>
+</body>
+</html>
