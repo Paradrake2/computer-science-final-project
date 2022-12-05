@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <title>Result</title>
+    <body>
+        <div>
+            <p>Change in opening price: ${{opencalc}}</p>
+            <p>Change in closing price: ${{closecalc}}</p>
+            <p>Change in volume of stocks: {{volumecalc}}</p>
+            <p>Change in high price: ${{highcalc}}</p>
+            <p>Change in low price: ${{lowcalc}}</p>
+        </div>
+        {{!result}}
+        <br>
+        <form action = "/stockmarket" method = "get">
+            <input type="submit" value = "Go back">
+        </form>
+    </body>
+</html>
