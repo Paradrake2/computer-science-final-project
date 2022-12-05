@@ -1,0 +1,55 @@
+<%
+%>
+<!DOCTYPE html>
+<html>
+<link rel = "stylesheet" href = "/static/css.css">
+    <style>
+
+    </style>
+    <script>
+        function showDiv() {
+            document.getElementById('user').style.display = "block";
+        }
+    </script>
+    <title>Stock Marketinator 9000</title>
+    <head></head>
+    <body>
+        <form class ="headform">
+            <div class="header">
+                <p>Welcome to the Stock Marketinator 9000!</p>
+            </div>
+            <div class="subheader">
+                <p>Here you can look up current and past prices of stocks and whether or not analysts recommend you buy them. </p>
+            </div>
+        </form>
+        <div class="center">
+            <form action="/stockmarketinfo" method="post">
+            <label>Basic Stock Lookup: </label>
+            <input type="text" name = "stock">
+            <input type="submit">
+            </form>
+        </div>
+        <div class = "center">
+            <form action = "/stockbuyer" method="post">
+                <label>Stock Buyer: </label>
+                <input type="text" name = "stock">
+                <input type = "submit">
+            </form>
+            <a id = "a" class="btn btn-default log-bar" href='#' role="button" onclick="showDiv()">What is this?</a>
+                <div id="user" style="display: none;" class="dropdown">
+                    <p>This looks at what analysts have said about your chosen stock. If more than half of them say it's positive, this will tell you to buy it. If it's negative, then it will say to not buy it. Simple! </p>
+                </div>
+        </div>
+
+        <div class = "center">
+            <form action="/history" method="post">
+                <input type = "submit" class = "inputa" value = "See Historical Stock Prices">
+            </form>
+            <br>
+            <br>
+            <form action="/database" method = "post">
+                <input type="submit" value="Go to database" class = "inputa">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<%
+from datetime import datetime
+import pytz
+now = datetime.now(tz = pytz.timezone('US/Eastern'))
+import yfinance as yf
+from bottle import request
+stockChoice = request.forms.get("stock")
+stock1 = yf.Ticker(stockChoice).info
+previousClosePrice = stock1['regularMarketPreviousClose']
+marketPrice = stock1['regularMarketPrice']
+%>
+<!DOCTYPE html>
+<html>
+    <!-- If hell is real, it is written in javascript -->
+    <script>
+        function showDiv() {
+            document.getElementById('nosy-user').style.display = "block";
+        }
+    </script>
+    <link rel="stylesheet" href="css.css">
+    <title>Stock Info</title>
+    <body>
+        <!-- Content of page -->
+        <form action="/addtodatabase" method = "post">
+            <label>Stock: </label>
+            <input type="text" name = "stock" value = "{{ stockChoice }}" readonly> <br>
+            <label>Previous Close Price: </label>
+            <input type="text" id = "PCP" name = "pClosePrice" value = "{{ previousClosePrice }}" readonly> <br>
+            <label>Market Price: </label>
+            <input type="text" id = "MP" name = "mPrice" value = "{{ marketPrice }}" readonly> <br>
+            <label>Date and Time: </label>
+            <input type="text" name= "Date" value = "{{now}}" readonly> <br>
+            <input type="submit" value="Save to Database" class = "inputc">
+        </form>
+        <!-- In case user wants to know why input fields are read only -->
+        <p>
+            <a class="btn btn-default log-bar" href='#' role="button" onclick="showDiv()">Why can I not change the input fields?</a>
+            <div id="nosy-user" style="display: none;">
+                <p>
+                    Because it would mess up the information in the database if you entered false info.
+                </p>
+            </div>
+        </p>
+        <br><br><br>
+        <form action = "/stockmarket" method ="get">
+            <input type = "submit" value = "Go back to stock market page">
+        </form>
+    </body>
+
+
+
+
+</html>

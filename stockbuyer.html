@@ -1,0 +1,50 @@
+<%
+import yfinance as yf
+from bottle import request
+import pandas
+
+
+
+%>
+<!DOCTYPE html>
+<html>
+    <style>
+        div.container {
+            width: 80%;
+            text-align: left;
+            color: black;
+            font-size: 17px;
+        }
+        input.input {
+            width: 200px;
+            height: 40px;
+            background-color: #22429c;
+            color: white;
+            font-size: 17px;
+        }
+        input.input:hover {
+            background-color: #7290fc;
+            color: black;
+        }
+    </style>
+    <head>
+        <title>Stock Buyer</title>
+    </head>
+
+    <body>
+        {{ !result }}
+        <br>
+        <p>Do analysts recommend you buy this stock? Answer: {{to_buy}}</p>
+
+        <br>
+        <div class = "container">
+            {{stance}}
+        </div>
+        <br>
+        <br>
+        <form action="/stockmarket" method="get">
+            <input type="submit" value="Go back to stock market" class = "input">
+        </form>
+    </body>
+
+</html>
